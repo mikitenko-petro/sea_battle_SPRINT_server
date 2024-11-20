@@ -1,9 +1,5 @@
 import socket
-import pickle
-import io
-import os
-
-which = 1
+from .grid import Grid
 
 client = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",],
        [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",],
@@ -43,12 +39,11 @@ def start_server():
             
             if data:
                 client = client_socket2.sendall(data)
-                which = 2
+                show = Grid(client)
 
             data2 = client_socket2.recv(1024)
 
             if data2:
                 client2 = client_socket.sendall(data2)
-                which = 1
+                show = Grid(client2)
 start_server()
-print("Усьо ок")
