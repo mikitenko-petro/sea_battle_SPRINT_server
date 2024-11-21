@@ -11,6 +11,4 @@ def play():
 
     start_server()
     #grid.place_ship(ship)
-
-    play
     print("Усьо ок усьо вместе брат, брат брату")
