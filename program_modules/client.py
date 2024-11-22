@@ -22,7 +22,7 @@ sea_enemy = [[" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",],
         [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",],
         [" ", " ", " ", " ", " ", " ", " ", " ", " ", " ",]]
 
-def client(sea=sea, sea_enemy=sea_enemy):
+def client(sea, sea_enemy):
     with socket.socket(family= socket.AF_INET, type= socket.SOCK_STREAM) as client_socket:
         client_socket.connect(("127.0.0.1", 8082))
         #data = client_socket.recv(1024)
@@ -60,4 +60,4 @@ def client(sea=sea, sea_enemy=sea_enemy):
                 #sea[row-1][column-1] = "X"
                 #message = pickle.dumps(sea)
                 #
-client()    
+client(sea, sea_enemy)    
