@@ -1,5 +1,4 @@
 import socket
-import pickle
 
 def start_server():
     with socket.socket(family = socket.AF_INET, type = socket.SOCK_STREAM) as server_socket:
@@ -18,13 +17,13 @@ def start_server():
             data = client_socket.recv(1024)
             
             if data:
-                print("send data")
+                print("send data to client 2")
                 client_grid = client_socket2.sendall(data)
 
             data2 = client_socket2.recv(1024)
 
             if data2:
-                print("send data")
+                print("send data to client 1")
                 client_grid2 = client_socket.sendall(data2)
                
 start_server()
