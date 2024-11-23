@@ -2,7 +2,7 @@ import socket
 
 def start_server():
     with socket.socket(family = socket.AF_INET, type = socket.SOCK_STREAM) as server_socket:
-        server_socket.bind(("127.0.0.1", 8082))
+        server_socket.bind(("192.168.0.196", 8082))
 
         server_socket.listen(2)
         print("connecting...")
@@ -18,12 +18,12 @@ def start_server():
             
             if data:
                 print("send data to client 2")
-                client_grid = client_socket2.sendall(data)
+                client_socket2.sendall(data)
 
             data2 = client_socket2.recv(1024)
 
             if data2:
                 print("send data to client 1")
-                client_grid2 = client_socket.sendall(data2)
+                client_socket.sendall(data2)
                
 start_server()

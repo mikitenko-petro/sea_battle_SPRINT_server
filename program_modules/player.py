@@ -2,8 +2,8 @@ from .grid import Grid
 from .ship import Ship
 from .client import client
 
-
 def play():
+    client()
     player_sea = Grid()
     enemy_sea = Grid()
     
@@ -23,6 +23,6 @@ def play():
         print("enemy grid")
         enemy_sea.show_grid()
 
-        # client() 
+         
 
 play()
