@@ -1,1 +1,1 @@
-from .player import play
+from .player import *
