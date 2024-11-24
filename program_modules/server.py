@@ -2,7 +2,7 @@ import socket
 
 def start_server():
     with socket.socket(family = socket.AF_INET, type = socket.SOCK_STREAM) as server_socket:
-        server_socket.bind(("192.168.0.196", 8082))
+        server_socket.bind(("0.0.0.0", 22))
 
         server_socket.listen(2)
         print("connecting...")

@@ -1,1 +1,1 @@
-from .player import *
+from .server import *
