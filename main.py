@@ -1,4 +1,4 @@
 import program_modules
 
 if __name__ == "__main__":
-    program_modules.start_server()
+    program_modules.SERVER.start_server()
