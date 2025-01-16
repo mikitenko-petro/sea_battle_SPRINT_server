@@ -26,25 +26,28 @@ class Server():
 
     def start_server(self):
         while True:
-            self.server_socket.listen()
-            print("connecting...")
+            try:
+                self.server_socket.listen()
+                print("connecting...")
 
-            client_socket, adress = self.server_socket.accept()
-            print("connected:", adress)
-            client_socket.sendall("1".encode("utf-8"))
+                client_socket, adress = self.server_socket.accept()
+                print("connected:", adress)
+                client_socket.sendall("1".encode("utf-8"))
 
-            client_socket2, adress2 = self.server_socket.accept()
-            print("connected:", adress2)
-            client_socket2.sendall("2".encode("utf-8"))
+                client_socket2, adress2 = self.server_socket.accept()
+                print("connected:", adress2)
+                client_socket2.sendall("2".encode("utf-8"))
 
-            thread1 = threading.Thread(target = listen_client, args = (client_socket, client_socket2))
-            thread1.start()
-            
-            thread2 = threading.Thread(target = listen_client, args = (client_socket2, client_socket))
-            thread2.start()
+                thread1 = threading.Thread(target = listen_client, args = (client_socket, client_socket2))
+                thread1.start()
+                
+                thread2 = threading.Thread(target = listen_client, args = (client_socket2, client_socket))
+                thread2.start()
 
-            if self.restart:
-                self.restart = False
-                break     
+                if self.restart:
+                    self.restart = False
+                    raise Exception("Restart")
+            except:
+                pass
 
 SERVER = Server()
